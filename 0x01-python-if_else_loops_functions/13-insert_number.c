@@ -1,101 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
- * insert_node - malloc and insert node into sorted singly linked list
- * @head: pointer to head of linked list
- * @number: data for new node
- * Return: address of new node, or NULL if failed
+ * print_listint - prints all elements of a listint_t list
+ * @h: pointer to head of list
+ * Return: number of nodes
  */
-
-listint_t *insert_node(listint_t **head, int number)
+size_t print_listint(const listint_t *h)
 {
-	listint_t *tmp = NULL;
-	listint_t *new = NULL;
+	const listint_t *current;
+	unsigned int n; /* number of nodes */
 
-	if (!head)
-		return (NULL);
+	current = h;
+	n = 0;
+	while (current != NULL)
+	{
+		printf("%i\n", current->n);
+		current = current->next;
+		n++;
+	}
 
-	/* malloc new node */
+	return (n);
+}
+
+/**
+ * add_nodeint_end - adds a new node at the end of a listint_t list
+ * @head: pointer to pointer of first node of listint_t list
+ * @n: integer to be included in new node
+ * Return: address of the new element or NULL if it fails
+ */
+listint_t *add_nodeint_end(listint_t **head, const int n)
+{
+	listint_t *new;
+	listint_t *current;
+
+	current = *head;
+
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
-	new->n = number;
+
+	new->n = n;
 	new->next = NULL;
 
-	/* if no linked list, insert node as the only member */
 	if (*head == NULL)
-	{
 		*head = new;
-		(*head)->next = NULL;
-		return (new);
-	}
-	/* if only one node in linked list, do comparision and insert */
-	if ((*head)->next == NULL)
+	else
 	{
-		if ((*head)->n < new->n)
-			(*head)->next = new;
-		else
-		{
-			new->next = *head;
-			*head = new;
-		}
-		return (new);
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new;
 	}
 
-	/* if lots of nodes in linked list, do comparision and insert */
-	tmp = *head;
-		    (new->n == tmp->n))
-		{
-			new->next = tmp->next;
-			tmp->next = new;
-			return (new);
-		}
-		tmp = tmp->next;
-	}
-	/* if new node is greatest and never inserted, insert now */
-	tmp->next = new;
-	return (new);
-}
-	while (tmp->next != NULL)
-		/* compare previous node and next node, insert in between */
-		if (((new->n > tmp->n) && (new->n < (tmp->next)->n)) ||
-	{
-		}
-		/* if new node num is the same as an existing node, insert */
-		/* if new node num is smaller than first node, insert */
-			*head = new;
-			return (new);
-		if (new->n < tmp->n)
-		{
-			new->next = tmp;
-		}
-		return (new);
-	}
-
-	/* if lots of nodes in linked list, do comparision and insert */
-	tmp = *head;
-	while (tmp->next != NULL)
-	{
-		/* if new node num is smaller than first node, insert */
-		if (new->n < tmp->n)
-		{
-			new->next = tmp;
-			*head = new;
-			return (new);
-		}
-		/* if new node num is the same as an existing node, insert */
-		/* compare previous node and next node, insert in between */
-		if (((new->n > tmp->n) && (new->n < (tmp->next)->n)) ||
-		    (new->n == tmp->n))
-		{
-			new->next = tmp->next;
-			tmp->next = new;
-			return (new);
-		}
-		tmp = tmp->next;
-	}
-	/* if new node is greatest and never inserted, insert now */
-	tmp->next = new;
 	return (new);
 }
 
+/**
+ * free_listint - frees a listint_t list
+ * @head: pointer to list to be freed
+ * Return: void
+ */
+void free_listint(listint_t *head)
+{
+	listint_t *current;
+
+	while (head != NULL)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+}

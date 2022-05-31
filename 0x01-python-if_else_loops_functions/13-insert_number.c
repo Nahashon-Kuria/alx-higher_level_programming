@@ -1,44 +1,101 @@
 #include "lists.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
- * insert_node - inserts a number in an ordered linked list
- * @head: double pointer to the linked list
- * @number: number to insert in the new node
- *
- * Return: address of the new node, or NULL
+ * insert_node - malloc and insert node into sorted singly linked list
+ * @head: pointer to head of linked list
+ * @number: data for new node
+ * Return: address of new node, or NULL if failed
  */
+
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *current = *head;
+	listint_t *tmp = NULL;
 	listint_t *new = NULL;
-	listint_t *temp = NULL;
 
 	if (!head)
 		return (NULL);
 
+	/* malloc new node */
 	new = malloc(sizeof(listint_t));
-	if (!new)
+	if (new == NULL)
 		return (NULL);
 	new->n = number;
 	new->next = NULL;
 
-	if (!*head || (*head)->n > number)
+	/* if no linked list, insert node as the only member */
+	if (*head == NULL)
 	{
-		new->next = *head;
-		return (*head = new);
+		*head = new;
+		(*head)->next = NULL;
+		return (new);
 	}
-	else
+	/* if only one node in linked list, do comparision and insert */
+	if ((*head)->next == NULL)
 	{
-		while (current && current->n < number)
+		if ((*head)->n < new->n)
+			(*head)->next = new;
+		else
 		{
-			temp = current;
-			current = current->next;
+			new->next = *head;
+			*head = new;
 		}
-		temp->next = new;
-		new->next = current;
+		return (new);
 	}
 
+	/* if lots of nodes in linked list, do comparision and insert */
+	tmp = *head;
+		    (new->n == tmp->n))
+		{
+			new->next = tmp->next;
+			tmp->next = new;
+			return (new);
+		}
+		tmp = tmp->next;
+	}
+	/* if new node is greatest and never inserted, insert now */
+	tmp->next = new;
 	return (new);
 }
+	while (tmp->next != NULL)
+		/* compare previous node and next node, insert in between */
+		if (((new->n > tmp->n) && (new->n < (tmp->next)->n)) ||
+	{
+		}
+		/* if new node num is the same as an existing node, insert */
+		/* if new node num is smaller than first node, insert */
+			*head = new;
+			return (new);
+		if (new->n < tmp->n)
+		{
+			new->next = tmp;
+		}
+		return (new);
+	}
+
+	/* if lots of nodes in linked list, do comparision and insert */
+	tmp = *head;
+	while (tmp->next != NULL)
+	{
+		/* if new node num is smaller than first node, insert */
+		if (new->n < tmp->n)
+		{
+			new->next = tmp;
+			*head = new;
+			return (new);
+		}
+		/* if new node num is the same as an existing node, insert */
+		/* compare previous node and next node, insert in between */
+		if (((new->n > tmp->n) && (new->n < (tmp->next)->n)) ||
+		    (new->n == tmp->n))
+		{
+			new->next = tmp->next;
+			tmp->next = new;
+			return (new);
+		}
+		tmp = tmp->next;
+	}
+	/* if new node is greatest and never inserted, insert now */
+	tmp->next = new;
+	return (new);
+}
+

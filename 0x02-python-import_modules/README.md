@@ -9,6 +9,7 @@
  > You have to use print function with string format to display integers
 
  > You have to assign:
+
 	- the value 1 to a variable called a
 	- the value 2 to a variable called b
 	- and use those two variables as arguments when calling the functions add and print

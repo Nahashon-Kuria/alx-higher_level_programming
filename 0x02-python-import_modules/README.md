@@ -362,8 +362,9 @@ and use those two variables only, as arguments when calling functions (including
 
 - Write a program that prints the alphabet in uppercase, followed by a new line.
 
- - Your program should be maximum 3 lines long
- - You are not allowed to use:
+ > Your program should be maximum 3 lines long
+
+ > You are not allowed to use:
 
 	- any loops
 	- any conditional statements

@@ -56,8 +56,11 @@
 	- the value 5 to a variable b
 
 and use those two variables only, as arguments when calling functions (including print)
+
  > a and b must be defined in 2 different lines: a = 10 and another b = 5
+
  > Your program should call each of the imported functions. See example below for format
+
  > the word calculator_1 should be used only once in your file
 
  > You are not allowed to use * for importing or __import__
@@ -128,7 +131,8 @@ and use those two variables only, as arguments when calling functions (including
 
 - Write a program that prints the number of and the list of its arguments.
 
- > The output should be:
+> The output should be:
+
 	>Number of argument(s) followed by argument (if number is one) or arguments (otherwise), followed by
 	> : (or . if no arguments were passed) followed by
 	> a new line, followed by (if at least one argument),
@@ -209,6 +213,7 @@ and use those two variables only, as arguments when calling functions (including
 - Write a program that imports all functions from the file calculator_1.py and handles basic operations.
 
  > Usage: ./100-my_calculator.py a operator b
+
 	- If the number of arguments is not 3, your program has to:
 
 	 - print Usage: ./100-my_calculator.py <a> <operator> <b> followed with a new line
@@ -221,12 +226,13 @@ and use those two variables only, as arguments when calling functions (including
 	 - * for multiplication
 	 - / for division
 
-	- If the operator is not one of the above:
+> If the operator is not one of the above:
 
 	 - print Unknown operator. Available operators: +, -, * and / followed with a new line
 	 - exit with the value 1
 
 	- You can cast a and b into integers by using int() (you can assume that all arguments will be castable into integers)
+
 	- The result should be printed like this: <a> <operator> <b> = <result>, followed by a new line
 
  > You are not allowed to use * for importing or __import__
@@ -356,6 +362,7 @@ and use those two variables only, as arguments when calling functions (including
 	            106 RETURN_VALUE
 	            107 LOAD_CONST               0 (None)
 	            110 RETURN_VALUE
+
 - Tip: Python bytecode
 
 9. Fast alphabet

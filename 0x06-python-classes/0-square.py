@@ -1,6 +1,10 @@
 #!/usr/bin/python3
-Square = __import__('0-square').Square
+"""
+Module 0-square
+Defines class Square
+"""
 
-my_square = Square()
-print(type(my_square))
-print(my_square.__dict__)
+
+class Square:
+    """Empty class"""
+    pass

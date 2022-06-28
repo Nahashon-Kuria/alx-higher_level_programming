@@ -1,10 +1,27 @@
 # 0x08. Python - More Classes and Objects
 ## Python & OOP
 ### Task
+
 0. Simple rectangle
-- Write an empty class Rectangle that defines a rectangle:
-	- You are not allowed to import any module
+
+Write an empty class Rectangle that defines a rectangle:
+- You are not allowed to import any module
+>
+	guillaume@ubuntu:~/0x08$ cat 0-main.py
+	#!/usr/bin/python3
+	Rectangle = __import__('0-rectangle').Rectangle
+	
+	my_rectangle = Rectangle()
+	print(type(my_rectangle))
+	print(my_rectangle.__dict__)
+
+	guillaume@ubuntu:~/0x08$ ./0-main.py
+	<class '0-rectangle.Rectangle'>
+	{}
+	guillaume@ubuntu:~/0x08$ 
+
 1. Real definition of a rectangle
+
 Write a class Rectangle that defines a rectangle by: (based on 0-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -20,7 +37,9 @@ Write a class Rectangle that defines a rectangle by: (based on 0-rectangle.py)
 		- if height is less than 0, raise a ValueError exception with the message height must be >= 0
 - Instantiation with optional width and height: def __init__(self, width=0, height=0):
 - You are not allowed to import any module
+
 2. Area and Perimeter
+
 Write a class Rectangle that defines a rectangle by: (based on 1-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -39,7 +58,9 @@ Write a class Rectangle that defines a rectangle by: (based on 1-rectangle.py)
 - Public instance method: def perimeter(self): that returns the rectangle perimeter:
 	- if width or height is equal to 0, perimeter is equal to 0
 - You are not allowed to import any module
+
 3. String representation
+
 Write a class Rectangle that defines a rectangle by: (based on 2-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -60,7 +81,9 @@ Write a class Rectangle that defines a rectangle by: (based on 2-rectangle.py)
 - print() and str() should print the rectangle with the character #: (see example below)
 	- if width or height is equal to 0, return an empty string
 - You are not allowed to import any module
+
 4. Eval is magic
+
 Write a class Rectangle that defines a rectangle by: (based on 3-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -82,7 +105,9 @@ Write a class Rectangle that defines a rectangle by: (based on 3-rectangle.py)
 	- if width or height is equal to 0, return an empty string
 - repr() should return a string representation of the rectangle to be able to recreate a new instance by using eval() (see example below)
 - You are not allowed to import any module
+
 5. Detect instance deletion
+
 Write a class Rectangle that defines a rectangle by: (based on 4-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -105,7 +130,9 @@ Write a class Rectangle that defines a rectangle by: (based on 4-rectangle.py)
 - repr() should return a string representation of the rectangle to be able to recreate a new instance by using eval()
 - Print the message Bye rectangle... (... being 3 dots not ellipsis) when an instance of Rectangle is deleted
 - You are not allowed to import any module
+
 7. Change representation
+
 Write a class Rectangle that defines a rectangle by: (based on 6-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -136,7 +163,9 @@ Write a class Rectangle that defines a rectangle by: (based on 6-rectangle.py)
 - repr() should return a string representation of the rectangle to be able to recreate a new instance by using eval()
 - Print the message Bye rectangle... (... being 3 dots not ellipsis) when an instance of Rectangle is deleted
 - You are not allowed to import any module
+
 8. Compare rectangles
+
 Write a class Rectangle that defines a rectangle by: (based on 7-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -171,7 +200,9 @@ Write a class Rectangle that defines a rectangle by: (based on 7-rectangle.py)
 	- rect_2 must be an instance of Rectangle, otherwise raise a TypeError exception with the message rect_2 must be an instance of Rectangle
 	- Returns rect_1 if both have the same area value
 - You are not allowed to import any module
+
 9. A square is a rectangle
+
 Write a class Rectangle that defines a rectangle by: (based on 8-rectangle.py)
 - Private instance attribute: width:
 	- property def width(self): to retrieve it
@@ -207,7 +238,9 @@ Write a class Rectangle that defines a rectangle by: (based on 8-rectangle.py)
 	- Returns rect_1 if both have the same area value
 - Class method def square(cls, size=0): that returns a new Rectangle instance with width == height == size
 - You are not allowed to import any module
+
 10. N queens
+
 The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard. Write a program that solves the N queens problem.
 - Usage: nqueens N
 	- If the user called the program with the wrong number of arguments, print Usage: nqueens N, followed by a new line, and exit with the status 1

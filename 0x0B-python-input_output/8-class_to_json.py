@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-"""module for loading data from .json files
-"""
+# 10-class_to_json.py
+# Nahashon M. Kuria <http://linkedin.com/in/nahashon-kuria-m>
+"""Defines a Python class-to-JSON function."""
 
 
-import json
-
-
-def load_from_json_file(filename):
-    """loads an object from json file containing json string
-        -> handles NO exceptions
-    """
-    with open(filename, encoding='utf-8') as myFile:
-        return (json.loads(myFile.read()))
+def class_to_json(obj):
+    """Return the dictionary represntation of a simple data structure."""
+    return obj.__dict__

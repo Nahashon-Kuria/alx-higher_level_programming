@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 # 4-append_write.py
-# Brennan D Baraban <375@holbertonschool.com>
+# Nahashon M. Kuria <http://linkedin.com/in/nahashon-kuria-m>
 """Defines a file-appending function."""
 
 
